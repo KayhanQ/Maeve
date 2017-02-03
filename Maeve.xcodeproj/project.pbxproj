@@ -18,6 +18,8 @@
 		049EAC311E42E14100BC3FBD /* MaeveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC301E42E14100BC3FBD /* MaeveTests.swift */; };
 		049EAC3C1E42E14100BC3FBD /* MaeveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC3B1E42E14100BC3FBD /* MaeveUITests.swift */; };
 		049EAC4A1E42E2AD00BC3FBD /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC491E42E2AD00BC3FBD /* Tiles.sks */; };
+		04E3A5851E45398B004097AC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3A5841E45398B004097AC /* MenuScene.swift */; };
+		04E3A5881E454587004097AC /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04E3A5871E454587004097AC /* Level2.sks */; };
 		04ED0DE71E439EE40001F3DF /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04ED0DE61E439EE40001F3DF /* Level1.sks */; };
 		04ED0DEC1E4520490001F3DF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED0DEB1E4520490001F3DF /* Player.swift */; };
 		04ED0DEE1E45210A0001F3DF /* Boulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED0DED1E45210A0001F3DF /* Boulder.swift */; };
@@ -58,6 +60,8 @@
 		049EAC3B1E42E14100BC3FBD /* MaeveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaeveUITests.swift; sourceTree = "<group>"; };
 		049EAC3D1E42E14100BC3FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		049EAC491E42E2AD00BC3FBD /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
+		04E3A5841E45398B004097AC /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		04E3A5871E454587004097AC /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		04ED0DE61E439EE40001F3DF /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 		04ED0DEB1E4520490001F3DF /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		04ED0DED1E45210A0001F3DF /* Boulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boulder.swift; sourceTree = "<group>"; };
@@ -114,10 +118,11 @@
 				049EAC151E42E14000BC3FBD /* AppDelegate.swift */,
 				049EAC171E42E14000BC3FBD /* GameScene.sks */,
 				049EAC191E42E14000BC3FBD /* Actions.sks */,
-				049EAC1B1E42E14000BC3FBD /* GameScene.swift */,
+				049EAC1D1E42E14000BC3FBD /* GameViewController.swift */,
+				04E3A5831E45397E004097AC /* Menu */,
+				04E3A5861E453DD3004097AC /* Game Engine */,
 				04ED0DEB1E4520490001F3DF /* Player.swift */,
 				04ED0DED1E45210A0001F3DF /* Boulder.swift */,
-				049EAC1D1E42E14000BC3FBD /* GameViewController.swift */,
 				04ED0DE81E43CD340001F3DF /* Levels */,
 				049EAC1F1E42E14000BC3FBD /* Main.storyboard */,
 				049EAC221E42E14000BC3FBD /* Assets.xcassets */,
@@ -146,10 +151,27 @@
 			path = MaeveUITests;
 			sourceTree = "<group>";
 		};
+		04E3A5831E45397E004097AC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				04E3A5841E45398B004097AC /* MenuScene.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		04E3A5861E453DD3004097AC /* Game Engine */ = {
+			isa = PBXGroup;
+			children = (
+				049EAC1B1E42E14000BC3FBD /* GameScene.swift */,
+			);
+			name = "Game Engine";
+			sourceTree = "<group>";
+		};
 		04ED0DE81E43CD340001F3DF /* Levels */ = {
 			isa = PBXGroup;
 			children = (
 				04ED0DE61E439EE40001F3DF /* Level1.sks */,
+				04E3A5871E454587004097AC /* Level2.sks */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -265,6 +287,7 @@
 				049EAC211E42E14000BC3FBD /* Main.storyboard in Resources */,
 				049EAC181E42E14000BC3FBD /* GameScene.sks in Resources */,
 				049EAC231E42E14000BC3FBD /* Assets.xcassets in Resources */,
+				04E3A5881E454587004097AC /* Level2.sks in Resources */,
 				049EAC4A1E42E2AD00BC3FBD /* Tiles.sks in Resources */,
 				049EAC261E42E14000BC3FBD /* LaunchScreen.storyboard in Resources */,
 				049EAC1A1E42E14000BC3FBD /* Actions.sks in Resources */,
@@ -296,6 +319,7 @@
 				049EAC1C1E42E14000BC3FBD /* GameScene.swift in Sources */,
 				04ED0DEE1E45210A0001F3DF /* Boulder.swift in Sources */,
 				049EAC1E1E42E14000BC3FBD /* GameViewController.swift in Sources */,
+				04E3A5851E45398B004097AC /* MenuScene.swift in Sources */,
 				04ED0DEC1E4520490001F3DF /* Player.swift in Sources */,
 				049EAC161E42E14000BC3FBD /* AppDelegate.swift in Sources */,
 			);

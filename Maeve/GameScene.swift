@@ -81,6 +81,7 @@ class GameScene: SKScene {
   
   var boulderTileGroup: SKTileGroup!
   var playerTileGroup: SKTileGroup!
+  var finishTileGroup: SKTileGroup!
 
   override func didMove(to view: SKView) {
     
@@ -132,9 +133,14 @@ class GameScene: SKScene {
       fatalError("No Player tile definition found")
     }
     
+    guard let finishTileGroup = tileGroups.first(where: {$0.name == "Finish"}) else {
+      fatalError("No Finish tile definition found")
+    }
+    
     self.boulderTileGroup = boulderTileGroup
     self.playerTileGroup = playerTileGroup
-    
+    self.finishTileGroup = finishTileGroup
+
     preprocessLevel()
   }
   
@@ -239,13 +245,30 @@ class GameScene: SKScene {
     isMovingTile = false
     
     if let player = tile as? Player {
-      
+      if isReachedFinish() {
+        endLevel()
+      }
     }
     if let boulder = tile as? Boulder {
       let coordinate = coordinateForTile(tile: boulder)
       boulder.removeFromParent()
       layer3.setTileGroup(boulderTileGroup, forColumn: coordinate.column, row: coordinate.row)
     }
+  }
+  
+  func isReachedFinish() -> Bool {
+    let playerCoordinate = coordinateForTile(tile: player)
+    let tile = layer2.tileGroup(atColumn: playerCoordinate.column, row: playerCoordinate.row)
+    if tile == finishTileGroup {
+      return true
+    }
+    return false
+  }
+  
+  func endLevel() {
+    let scene = MenuScene(size: (self.view?.bounds.size)!)
+    scene.scaleMode = .aspectFill
+    self.view?.presentScene(scene)    
   }
   
   func newCoordinateForCoordinate(coordinate: Coordinate, inDirection direction: direction) -> Coordinate {
