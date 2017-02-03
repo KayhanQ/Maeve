@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		049EAC161E42E14000BC3FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC151E42E14000BC3FBD /* AppDelegate.swift */; };
+		049EAC181E42E14000BC3FBD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC171E42E14000BC3FBD /* GameScene.sks */; };
+		049EAC1A1E42E14000BC3FBD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC191E42E14000BC3FBD /* Actions.sks */; };
+		049EAC1C1E42E14000BC3FBD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC1B1E42E14000BC3FBD /* GameScene.swift */; };
+		049EAC1E1E42E14000BC3FBD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC1D1E42E14000BC3FBD /* GameViewController.swift */; };
+		049EAC211E42E14000BC3FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC1F1E42E14000BC3FBD /* Main.storyboard */; };
+		049EAC231E42E14000BC3FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC221E42E14000BC3FBD /* Assets.xcassets */; };
+		049EAC261E42E14000BC3FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC241E42E14000BC3FBD /* LaunchScreen.storyboard */; };
+		049EAC311E42E14100BC3FBD /* MaeveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC301E42E14100BC3FBD /* MaeveTests.swift */; };
+		049EAC3C1E42E14100BC3FBD /* MaeveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC3B1E42E14100BC3FBD /* MaeveUITests.swift */; };
+		049EAC4A1E42E2AD00BC3FBD /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC491E42E2AD00BC3FBD /* Tiles.sks */; };
+		04ED0DE71E439EE40001F3DF /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04ED0DE61E439EE40001F3DF /* Level1.sks */; };
+		04ED0DEC1E4520490001F3DF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED0DEB1E4520490001F3DF /* Player.swift */; };
+		04ED0DEE1E45210A0001F3DF /* Boulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED0DED1E45210A0001F3DF /* Boulder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		049EAC2D1E42E14100BC3FBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 049EAC0A1E42E14000BC3FBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 049EAC111E42E14000BC3FBD;
+			remoteInfo = Maeve;
+		};
+		049EAC381E42E14100BC3FBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 049EAC0A1E42E14000BC3FBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 049EAC111E42E14000BC3FBD;
+			remoteInfo = Maeve;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		049EAC121E42E14000BC3FBD /* Maeve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maeve.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		049EAC151E42E14000BC3FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		049EAC171E42E14000BC3FBD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		049EAC191E42E14000BC3FBD /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		049EAC1B1E42E14000BC3FBD /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		049EAC1D1E42E14000BC3FBD /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		049EAC201E42E14000BC3FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		049EAC221E42E14000BC3FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		049EAC251E42E14000BC3FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		049EAC271E42E14000BC3FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		049EAC2C1E42E14100BC3FBD /* MaeveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaeveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		049EAC301E42E14100BC3FBD /* MaeveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaeveTests.swift; sourceTree = "<group>"; };
+		049EAC321E42E14100BC3FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		049EAC371E42E14100BC3FBD /* MaeveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaeveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		049EAC3B1E42E14100BC3FBD /* MaeveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaeveUITests.swift; sourceTree = "<group>"; };
+		049EAC3D1E42E14100BC3FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		049EAC491E42E2AD00BC3FBD /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
+		04ED0DE61E439EE40001F3DF /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
+		04ED0DEB1E4520490001F3DF /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		04ED0DED1E45210A0001F3DF /* Boulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boulder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		049EAC0F1E42E14000BC3FBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049EAC291E42E14100BC3FBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049EAC341E42E14100BC3FBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		049EAC091E42E14000BC3FBD = {
+			isa = PBXGroup;
+			children = (
+				049EAC141E42E14000BC3FBD /* Maeve */,
+				049EAC2F1E42E14100BC3FBD /* MaeveTests */,
+				049EAC3A1E42E14100BC3FBD /* MaeveUITests */,
+				049EAC131E42E14000BC3FBD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		049EAC131E42E14000BC3FBD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				049EAC121E42E14000BC3FBD /* Maeve.app */,
+				049EAC2C1E42E14100BC3FBD /* MaeveTests.xctest */,
+				049EAC371E42E14100BC3FBD /* MaeveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		049EAC141E42E14000BC3FBD /* Maeve */ = {
+			isa = PBXGroup;
+			children = (
+				049EAC151E42E14000BC3FBD /* AppDelegate.swift */,
+				049EAC171E42E14000BC3FBD /* GameScene.sks */,
+				049EAC191E42E14000BC3FBD /* Actions.sks */,
+				049EAC1B1E42E14000BC3FBD /* GameScene.swift */,
+				04ED0DEB1E4520490001F3DF /* Player.swift */,
+				04ED0DED1E45210A0001F3DF /* Boulder.swift */,
+				049EAC1D1E42E14000BC3FBD /* GameViewController.swift */,
+				04ED0DE81E43CD340001F3DF /* Levels */,
+				049EAC1F1E42E14000BC3FBD /* Main.storyboard */,
+				049EAC221E42E14000BC3FBD /* Assets.xcassets */,
+				049EAC491E42E2AD00BC3FBD /* Tiles.sks */,
+				049EAC241E42E14000BC3FBD /* LaunchScreen.storyboard */,
+				049EAC271E42E14000BC3FBD /* Info.plist */,
+			);
+			path = Maeve;
+			sourceTree = "<group>";
+		};
+		049EAC2F1E42E14100BC3FBD /* MaeveTests */ = {
+			isa = PBXGroup;
+			children = (
+				049EAC301E42E14100BC3FBD /* MaeveTests.swift */,
+				049EAC321E42E14100BC3FBD /* Info.plist */,
+			);
+			path = MaeveTests;
+			sourceTree = "<group>";
+		};
+		049EAC3A1E42E14100BC3FBD /* MaeveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				049EAC3B1E42E14100BC3FBD /* MaeveUITests.swift */,
+				049EAC3D1E42E14100BC3FBD /* Info.plist */,
+			);
+			path = MaeveUITests;
+			sourceTree = "<group>";
+		};
+		04ED0DE81E43CD340001F3DF /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				04ED0DE61E439EE40001F3DF /* Level1.sks */,
+			);
+			name = Levels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		049EAC111E42E14000BC3FBD /* Maeve */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 049EAC401E42E14100BC3FBD /* Build configuration list for PBXNativeTarget "Maeve" */;
+			buildPhases = (
+				049EAC0E1E42E14000BC3FBD /* Sources */,
+				049EAC0F1E42E14000BC3FBD /* Frameworks */,
+				049EAC101E42E14000BC3FBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maeve;
+			productName = Maeve;
+			productReference = 049EAC121E42E14000BC3FBD /* Maeve.app */;
+			productType = "com.apple.product-type.application";
+		};
+		049EAC2B1E42E14100BC3FBD /* MaeveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 049EAC431E42E14100BC3FBD /* Build configuration list for PBXNativeTarget "MaeveTests" */;
+			buildPhases = (
+				049EAC281E42E14100BC3FBD /* Sources */,
+				049EAC291E42E14100BC3FBD /* Frameworks */,
+				049EAC2A1E42E14100BC3FBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				049EAC2E1E42E14100BC3FBD /* PBXTargetDependency */,
+			);
+			name = MaeveTests;
+			productName = MaeveTests;
+			productReference = 049EAC2C1E42E14100BC3FBD /* MaeveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		049EAC361E42E14100BC3FBD /* MaeveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 049EAC461E42E14100BC3FBD /* Build configuration list for PBXNativeTarget "MaeveUITests" */;
+			buildPhases = (
+				049EAC331E42E14100BC3FBD /* Sources */,
+				049EAC341E42E14100BC3FBD /* Frameworks */,
+				049EAC351E42E14100BC3FBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				049EAC391E42E14100BC3FBD /* PBXTargetDependency */,
+			);
+			name = MaeveUITests;
+			productName = MaeveUITests;
+			productReference = 049EAC371E42E14100BC3FBD /* MaeveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		049EAC0A1E42E14000BC3FBD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Paddy Crab Games";
+				TargetAttributes = {
+					049EAC111E42E14000BC3FBD = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3AFNLK5T2D;
+						ProvisioningStyle = Automatic;
+					};
+					049EAC2B1E42E14100BC3FBD = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 049EAC111E42E14000BC3FBD;
+					};
+					049EAC361E42E14100BC3FBD = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 049EAC111E42E14000BC3FBD;
+					};
+				};
+			};
+			buildConfigurationList = 049EAC0D1E42E14000BC3FBD /* Build configuration list for PBXProject "Maeve" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 049EAC091E42E14000BC3FBD;
+			productRefGroup = 049EAC131E42E14000BC3FBD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				049EAC111E42E14000BC3FBD /* Maeve */,
+				049EAC2B1E42E14100BC3FBD /* MaeveTests */,
+				049EAC361E42E14100BC3FBD /* MaeveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		049EAC101E42E14000BC3FBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049EAC211E42E14000BC3FBD /* Main.storyboard in Resources */,
+				049EAC181E42E14000BC3FBD /* GameScene.sks in Resources */,
+				049EAC231E42E14000BC3FBD /* Assets.xcassets in Resources */,
+				049EAC4A1E42E2AD00BC3FBD /* Tiles.sks in Resources */,
+				049EAC261E42E14000BC3FBD /* LaunchScreen.storyboard in Resources */,
+				049EAC1A1E42E14000BC3FBD /* Actions.sks in Resources */,
+				04ED0DE71E439EE40001F3DF /* Level1.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049EAC2A1E42E14100BC3FBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049EAC351E42E14100BC3FBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		049EAC0E1E42E14000BC3FBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049EAC1C1E42E14000BC3FBD /* GameScene.swift in Sources */,
+				04ED0DEE1E45210A0001F3DF /* Boulder.swift in Sources */,
+				049EAC1E1E42E14000BC3FBD /* GameViewController.swift in Sources */,
+				04ED0DEC1E4520490001F3DF /* Player.swift in Sources */,
+				049EAC161E42E14000BC3FBD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049EAC281E42E14100BC3FBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049EAC311E42E14100BC3FBD /* MaeveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049EAC331E42E14100BC3FBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049EAC3C1E42E14100BC3FBD /* MaeveUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		049EAC2E1E42E14100BC3FBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 049EAC111E42E14000BC3FBD /* Maeve */;
+			targetProxy = 049EAC2D1E42E14100BC3FBD /* PBXContainerItemProxy */;
+		};
+		049EAC391E42E14100BC3FBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 049EAC111E42E14000BC3FBD /* Maeve */;
+			targetProxy = 049EAC381E42E14100BC3FBD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		049EAC1F1E42E14000BC3FBD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				049EAC201E42E14000BC3FBD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		049EAC241E42E14000BC3FBD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				049EAC251E42E14000BC3FBD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		049EAC3E1E42E14100BC3FBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		049EAC3F1E42E14100BC3FBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		049EAC411E42E14100BC3FBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3AFNLK5T2D;
+				INFOPLIST_FILE = Maeve/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paddy-Crab-Games.Maeve";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		049EAC421E42E14100BC3FBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3AFNLK5T2D;
+				INFOPLIST_FILE = Maeve/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paddy-Crab-Games.Maeve";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		049EAC441E42E14100BC3FBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MaeveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paddy-Crab-Games.MaeveTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maeve.app/Maeve";
+			};
+			name = Debug;
+		};
+		049EAC451E42E14100BC3FBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MaeveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paddy-Crab-Games.MaeveTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maeve.app/Maeve";
+			};
+			name = Release;
+		};
+		049EAC471E42E14100BC3FBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MaeveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paddy-Crab-Games.MaeveUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Maeve;
+			};
+			name = Debug;
+		};
+		049EAC481E42E14100BC3FBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MaeveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Paddy-Crab-Games.MaeveUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Maeve;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		049EAC0D1E42E14000BC3FBD /* Build configuration list for PBXProject "Maeve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049EAC3E1E42E14100BC3FBD /* Debug */,
+				049EAC3F1E42E14100BC3FBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		049EAC401E42E14100BC3FBD /* Build configuration list for PBXNativeTarget "Maeve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049EAC411E42E14100BC3FBD /* Debug */,
+				049EAC421E42E14100BC3FBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		049EAC431E42E14100BC3FBD /* Build configuration list for PBXNativeTarget "MaeveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049EAC441E42E14100BC3FBD /* Debug */,
+				049EAC451E42E14100BC3FBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		049EAC461E42E14100BC3FBD /* Build configuration list for PBXNativeTarget "MaeveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049EAC471E42E14100BC3FBD /* Debug */,
+				049EAC481E42E14100BC3FBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 049EAC0A1E42E14000BC3FBD /* Project object */;
+}
