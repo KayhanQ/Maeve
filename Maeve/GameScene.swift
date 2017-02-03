@@ -27,6 +27,8 @@ struct Tile {
       return .beside
     case .rough:
       return .onTopOf
+    case .finish:
+      return .onTopOf
     default:
       return .beside
     }
@@ -37,6 +39,7 @@ enum tileType: String {
   case rock = "Rock"
   case boulder = "Boulder"
   case rough = "Rough"
+  case finish = "Finish"
   case player = "Player"
 }
 
@@ -77,7 +80,8 @@ class GameScene: SKScene {
   let numRows = 14
   
   var boulderTileGroup: SKTileGroup!
-  
+  var playerTileGroup: SKTileGroup!
+
   override func didMove(to view: SKView) {
     
     self.scaleMode = .aspectFit
@@ -124,7 +128,26 @@ class GameScene: SKScene {
       fatalError("No Boulder tile definition found")
     }
 
+    guard let playerTileGroup = tileGroups.first(where: {$0.name == "Player"}) else {
+      fatalError("No Player tile definition found")
+    }
+    
     self.boulderTileGroup = boulderTileGroup
+    self.playerTileGroup = playerTileGroup
+    
+    preprocessLevel()
+  }
+  
+  func preprocessLevel() {
+    for column in 0..<numColumns {
+      for row in 0..<numRows {
+        let tile = layer3.tileGroup(atColumn: column, row: row)
+        if tile == playerTileGroup {
+          layer3.setTileGroup(nil, forColumn: column, row: row)
+          player.position = coordinateToPoint(coordinate: Coordinate(column: column, row: row))
+        }
+      }
+    }
   }
   
   func loadSceneNodes() {
