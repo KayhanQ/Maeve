@@ -54,7 +54,7 @@ class MenuScene: SKScene {
       }
       
       if let scene = GameScene(fileNamed: levelName) {
-        scene.scaleMode = .aspectFill
+        // scene.scaleMode = .aspectFill
         // Present the scene
         view.presentScene(scene)
       }

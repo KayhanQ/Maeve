@@ -83,10 +83,15 @@ class GameScene: SKScene {
   var playerTileGroup: SKTileGroup!
   var finishTileGroup: SKTileGroup!
 
+  var world: SKNode!
+  
   override func didMove(to view: SKView) {
     
-    self.scaleMode = .aspectFit
-    scene?.scaleMode = .aspectFit
+//    self.scaleMode = .aspectFit
+//    scene?.scaleMode = .aspectFit
+
+    
+    
     // Get label node from scene and store it for use later
     self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
     if let label = self.label {
@@ -142,6 +147,23 @@ class GameScene: SKScene {
     self.finishTileGroup = finishTileGroup
 
     preprocessLevel()
+    
+    
+    
+    
+    let cameraNode = SKCameraNode()
+    cameraNode.position = CGPoint(x: scene!.size.width / 2, y: scene!.size.height / 2)
+    scene?.addChild(cameraNode)
+    scene?.camera = cameraNode
+    
+    
+    print(view.frame.height)
+    
+    let numTiles = view.frame.height / tileWidth
+    let scale = CGFloat(10) / numTiles
+    let zoomInAction = SKAction.scale(to: scale, duration: 1)
+    cameraNode.run(zoomInAction)
+    cameraNode.position = player.position
   }
   
   func preprocessLevel() {
@@ -228,6 +250,9 @@ class GameScene: SKScene {
       tile.run(action, completion: { _ in
         self.moveTile(tile: tile, inDirection: direction)
       })
+      if tile is Player {
+        camera?.run(action)
+      }
     }
   }
   
@@ -301,12 +326,13 @@ class GameScene: SKScene {
   }
   
   func obstacleAtCoordinate(coordinate: Coordinate) -> Tile? {
-    if let obstacle = layer2.tileDefinition(atColumn: coordinate.column, row: coordinate.row) {
+    if let obstacle = layer3.tileDefinition(atColumn: coordinate.column, row: coordinate.row) {
       if let tileType = tileType.init(rawValue: obstacle.name!) {
         return Tile(tileType: tileType)
       }
     }
-    if let obstacle = layer3.tileDefinition(atColumn: coordinate.column, row: coordinate.row) {
+    
+    if let obstacle = layer2.tileDefinition(atColumn: coordinate.column, row: coordinate.row) {
       if let tileType = tileType.init(rawValue: obstacle.name!) {
         return Tile(tileType: tileType)
       }
@@ -317,5 +343,10 @@ class GameScene: SKScene {
   
   override func update(_ currentTime: TimeInterval) {
     // Called before each frame is rendered
+    if isMovingTile {
+      if var camera = scene?.camera {
+          //camera.position = player.position
+      }
+    }
   }
 }
