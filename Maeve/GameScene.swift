@@ -6,125 +6,46 @@
 //  Copyright © 2017 Paddy Crab Games. All rights reserved.
 //
 
+import Foundation
 import SpriteKit
 import GameplayKit
 
-enum direction: Int {
-  case up, right, down, left
-}
-
-enum playerState {
-  case idle, moving
-}
-
-struct Tile {
-  let tileType: tileType
-  var tileStops: tileStops {
-    switch tileType {
-    case .rock:
-      return .beside
-    case .boulder:
-      return .beside
-    case .rough:
-      return .onTopOf
-    case .finish:
-      return .onTopOf
-    default:
-      return .beside
-    }
-  }
-}
-
-enum tileType: String {
-  case rock = "Rock"
-  case boulder = "Boulder"
-  case rough = "Rough"
-  case finish = "Finish"
-  case player = "Player"
-}
-
-enum tileStops {
-  case beside
-  case onTopOf
-}
-
-struct Coordinate {
-  var column: Int
-  var row: Int
-}
-
-struct GameState {
-  var playerState: playerState = .idle
-  var playerDirection: direction = .right
-}
-
 class GameScene: SKScene {
   
-  private var label : SKLabelNode?
-  private var spinnyNode : SKShapeNode?
   private var player: Player!
 
-  var layer2:SKTileMapNode!
-  var layer3:SKTileMapNode!
+  private var layer2:SKTileMapNode!
+  private var layer3:SKTileMapNode!
 
   var gameState: GameState = GameState()
+  
   var isUserInputAccepted: Bool {
     return !isMovingTile
   }
   
-  var isMovingTile: Bool = false
-  var tileSpeed: Double = 1/15
+  private var isMovingTile: Bool = false
   
-  let tileWidth: CGFloat = 64
-  let numColumns = 25
-  let numRows = 14
+  private let tileSpeed: CGFloat = 0.08
   
-  var boulderTileGroup: SKTileGroup!
-  var playerTileGroup: SKTileGroup!
-  var finishTileGroup: SKTileGroup!
+  private let numRowsOnScreen: Int = 10
+  private let tileWidth: CGFloat = 64
+  private let numColumns = 64
+  private let numRows = 64
+  
+  private var boulderTileGroup: SKTileGroup!
+  private var playerTileGroup: SKTileGroup!
+  private var finishTileGroup: SKTileGroup!
 
-  var world: SKNode!
+  private var lastSaveCoordinate: Coordinate!
   
   override func didMove(to view: SKView) {
-    
-//    self.scaleMode = .aspectFit
-//    scene?.scaleMode = .aspectFit
-
-    
-    
-    // Get label node from scene and store it for use later
-    self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-    if let label = self.label {
-      label.alpha = 0.0
-      label.run(SKAction.fadeIn(withDuration: 2.0))
-    }
-    
-    let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedRight(sender:)))
-    swipeRight.direction = .right
-    view.addGestureRecognizer(swipeRight)
-    
-    
-    let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedLeft(sender:)))
-    swipeLeft.direction = .left
-    view.addGestureRecognizer(swipeLeft)
-    
-    
-    let swipeUp:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedUp(sender:)))
-    swipeUp.direction = .up
-    view.addGestureRecognizer(swipeUp)
-    
-    
-    let swipeDown:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedDown(sender:)))
-    swipeDown.direction = .down
-    view.addGestureRecognizer(swipeDown)
-    
-    loadSceneNodes()
-    
-    player = Player(imageNamed: "Player")
-    player.anchorPoint = CGPoint(x: 0, y: 0)
-    player.position = CGPoint(x: 64*2, y: 64)
-    scene?.addChild(player)
-    
+    addSwipeGestureRecognizers(view: view)
+    loadTileGroups()
+    preprocessLevel()
+    initializeCamera()
+  }
+  
+  func loadTileGroups() {
     guard let tileSet = SKTileSet(named: "Game Tiles") else {
       fatalError("Object Tiles Tile Set not found")
     }
@@ -133,7 +54,7 @@ class GameScene: SKScene {
     guard let boulderTileGroup = tileGroups.first(where: {$0.name == "Boulder"}) else {
       fatalError("No Boulder tile definition found")
     }
-
+    
     guard let playerTileGroup = tileGroups.first(where: {$0.name == "Player"}) else {
       fatalError("No Player tile definition found")
     }
@@ -145,40 +66,18 @@ class GameScene: SKScene {
     self.boulderTileGroup = boulderTileGroup
     self.playerTileGroup = playerTileGroup
     self.finishTileGroup = finishTileGroup
-
-    preprocessLevel()
-    
-    
-    
-    
-    let cameraNode = SKCameraNode()
-    cameraNode.position = CGPoint(x: scene!.size.width / 2, y: scene!.size.height / 2)
-    scene?.addChild(cameraNode)
-    scene?.camera = cameraNode
-    
-    
-    print(view.frame.height)
-    
-    let numTiles = view.frame.height / tileWidth
-    let scale = CGFloat(10) / numTiles
-    let zoomInAction = SKAction.scale(to: scale, duration: 1)
-    cameraNode.run(zoomInAction)
-    cameraNode.position = player.position
   }
   
   func preprocessLevel() {
-    for column in 0..<numColumns {
-      for row in 0..<numRows {
-        let tile = layer3.tileGroup(atColumn: column, row: row)
-        if tile == playerTileGroup {
-          layer3.setTileGroup(nil, forColumn: column, row: row)
-          player.position = coordinateToPoint(coordinate: Coordinate(column: column, row: row))
-        }
-      }
-    }
-  }
-  
-  func loadSceneNodes() {
+    player = Player(imageNamed: "Player")
+    player.anchorPoint = CGPoint(x: 0, y: 0)
+    player.position = CGPoint(x: 64*2, y: 64)
+    scene?.addChild(player)
+    
+    let physicsBody = SKPhysicsBody(rectangleOf: player.size)
+    physicsBody.affectedByGravity = false
+    player.physicsBody = physicsBody
+    
     guard let layer3 = childNode(withName: "Layer3")
       as? SKTileMapNode else {
         fatalError("Layer3 node not loaded")
@@ -190,26 +89,31 @@ class GameScene: SKScene {
         fatalError("Layer2 node not loaded")
     }
     self.layer2 = layer2
+
+    for column in 0..<numColumns {
+      for row in 0..<numRows {
+        let tile = layer3.tileGroup(atColumn: column, row: row)
+        if tile == playerTileGroup {
+          layer3.setTileGroup(nil, forColumn: column, row: row)
+          let playerCoordinate = Coordinate(column: column, row: row)
+          player.position = coordinateToPoint(coordinate: playerCoordinate)
+          lastSaveCoordinate = playerCoordinate
+        }
+      }
+    }
   }
   
-  func swipedRight(sender:UISwipeGestureRecognizer) {
-    print("swiped right")
-    swipedInDirection(direction: .right)
-  }
-  
-  func swipedLeft(sender:UISwipeGestureRecognizer) {
-    print("swiped left")
-    swipedInDirection(direction: .left)
-  }
-  
-  func swipedUp(sender:UISwipeGestureRecognizer) {
-    print("swiped up")
-    swipedInDirection(direction: .up)
-  }
-  
-  func swipedDown(sender:UISwipeGestureRecognizer) {
-    print("swiped down")
-    swipedInDirection(direction: .down)
+  func initializeCamera() {
+    let cameraNode = SKCameraNode()
+    cameraNode.position = CGPoint(x: scene!.size.width / 2, y: scene!.size.height / 2)
+    scene?.addChild(cameraNode)
+    scene?.camera = cameraNode
+    
+    let numTiles = view!.frame.height / tileWidth
+    let scale = CGFloat(numRowsOnScreen) / numTiles
+    let zoomInAction = SKAction.scale(to: scale, duration: 1)
+    cameraNode.run(zoomInAction)
+    cameraNode.position = player.position
   }
   
   func swipedInDirection(direction: direction) {
@@ -220,39 +124,30 @@ class GameScene: SKScene {
   
   func moveTile(tile: SKSpriteNode, inDirection direction: direction) {
     let tileCoordinate = coordinateForTile(tile: tile)
-    let nextCoordinate = newCoordinateForCoordinate(coordinate: tileCoordinate, inDirection: direction)
+    var nextCoordinate = newCoordinateForCoordinate(coordinate: tileCoordinate, inDirection: direction)
+    var obstacleBesideTile = obstacleAtCoordinate(coordinate: nextCoordinate)
     
-    let obstacleUnderTile = obstacleAtCoordinate(coordinate: tileCoordinate)
-    let obstacleBesideTile = obstacleAtCoordinate(coordinate: nextCoordinate)
-    
-    if isMovingTile {
-      if obstacleUnderTile?.tileStops == .onTopOf {
-        endMovementForTile(tile: tile)
-        return
-      }
+    var newTileCoordinate = tileCoordinate
+    while obstacleBesideTile == nil {
+      newTileCoordinate = nextCoordinate
+      nextCoordinate = newCoordinateForCoordinate(coordinate: nextCoordinate, inDirection: direction)
+      obstacleBesideTile = obstacleAtCoordinate(coordinate: nextCoordinate)
+    }
+
+    if obstacleBesideTile?.tileStops == .onTopOf {
+      newTileCoordinate = nextCoordinate
     }
     
-    if obstacleBesideTile?.tileType == .rock {
-      endMovementForTile(tile: tile)
-      return
-    }
-    
-    if obstacleBesideTile?.tileType == .boulder {
-      endMovementForTile(tile: tile)
-      pushBoulderAtCoordinate(coordinate: nextCoordinate, inDirection: direction)
-      return
-    }
-    
-    if obstacleBesideTile == nil || obstacleBesideTile?.tileStops == .onTopOf {
-      isMovingTile = true
-      let point = coordinateToPoint(coordinate: nextCoordinate)
-      let action = SKAction.move(to: point, duration: self.tileSpeed)
-      tile.run(action, completion: { _ in
-        self.moveTile(tile: tile, inDirection: direction)
-      })
-      if tile is Player {
-        camera?.run(action)
-      }
+    isMovingTile = true
+    let actionTime = Double(tileCoordinate.distanceFrom(coordinate: newTileCoordinate)) * Double(tileSpeed)
+    let point = coordinateToPoint(coordinate: newTileCoordinate)
+    let action = SKAction.move(to: point, duration: actionTime)
+    action.timingMode = SKActionTimingMode.easeInEaseOut
+    tile.run(action, completion: { _ in
+      self.endMovementForTile(tile: tile, inDirection: direction)
+    })
+    if tile is Player {
+      camera?.run(action)
     }
   }
   
@@ -266,18 +161,33 @@ class GameScene: SKScene {
     moveTile(tile: boulder, inDirection: direction)
   }
   
-  func endMovementForTile(tile: SKSpriteNode) {
+  func endMovementForTile(tile: SKSpriteNode, inDirection direction: direction) {
     isMovingTile = false
-    
+    let tileCoordinate = coordinateForTile(tile: tile)
+
+
     if let player = tile as? Player {
       if isReachedFinish() {
-        endLevel()
+        lastSaveCoordinate = coordinateForTile(tile: player)
+      }
+      if let obstacleUnderTile = obstacleAtCoordinate(coordinate: tileCoordinate) {
+        if obstacleUnderTile.tileType == .hole {
+          respawn()
+        }
       }
     }
+    
     if let boulder = tile as? Boulder {
       let coordinate = coordinateForTile(tile: boulder)
       boulder.removeFromParent()
       layer3.setTileGroup(boulderTileGroup, forColumn: coordinate.column, row: coordinate.row)
+    }
+    
+    let obstacleCoordinate = newCoordinateForCoordinate(coordinate: tileCoordinate, inDirection: direction)
+    if let obstacle = obstacleAtCoordinate(coordinate: obstacleCoordinate) {
+      if obstacle.tileType == .boulder {
+        pushBoulderAtCoordinate(coordinate: obstacleCoordinate, inDirection: direction)
+      }
     }
   }
   
@@ -296,23 +206,8 @@ class GameScene: SKScene {
     self.view?.presentScene(scene)    
   }
   
-  func newCoordinateForCoordinate(coordinate: Coordinate, inDirection direction: direction) -> Coordinate {
-    var columnDelta = 0
-    var rowDelta = 0
-    
-    switch direction {
-    case .up:
-      rowDelta += 1
-    case .right:
-      columnDelta += 1
-    case .down:
-      rowDelta -= 1
-    case .left:
-      columnDelta -= 1
-    }
-    
-    let newCoor = Coordinate(column: coordinate.column + columnDelta, row: coordinate.row + rowDelta)
-    return newCoor
+  func respawn() {
+    player.position = coordinateToPoint(coordinate: lastSaveCoordinate)
   }
   
   func coordinateToPoint(coordinate: Coordinate) -> CGPoint {
@@ -327,13 +222,13 @@ class GameScene: SKScene {
   
   func obstacleAtCoordinate(coordinate: Coordinate) -> Tile? {
     if let obstacle = layer3.tileDefinition(atColumn: coordinate.column, row: coordinate.row) {
-      if let tileType = tileType.init(rawValue: obstacle.name!) {
+      if let tileType = tileType(rawValue: obstacle.name!) {
         return Tile(tileType: tileType)
       }
     }
     
     if let obstacle = layer2.tileDefinition(atColumn: coordinate.column, row: coordinate.row) {
-      if let tileType = tileType.init(rawValue: obstacle.name!) {
+      if let tileType = tileType(rawValue: obstacle.name!) {
         return Tile(tileType: tileType)
       }
     }
@@ -342,11 +237,5 @@ class GameScene: SKScene {
   }
   
   override func update(_ currentTime: TimeInterval) {
-    // Called before each frame is rendered
-    if isMovingTile {
-      if var camera = scene?.camera {
-          //camera.position = player.position
-      }
-    }
   }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04493F601E4A5297000BFF83 /* GameScene+UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04493F5F1E4A5297000BFF83 /* GameScene+UserInput.swift */; };
+		04493F621E4A7196000BFF83 /* GameEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04493F611E4A7196000BFF83 /* GameEnums.swift */; };
+		04493F641E4A726B000BFF83 /* GameScene+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04493F631E4A726B000BFF83 /* GameScene+Helpers.swift */; };
 		049EAC161E42E14000BC3FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC151E42E14000BC3FBD /* AppDelegate.swift */; };
 		049EAC181E42E14000BC3FBD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC171E42E14000BC3FBD /* GameScene.sks */; };
 		049EAC1A1E42E14000BC3FBD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC191E42E14000BC3FBD /* Actions.sks */; };
@@ -18,6 +21,8 @@
 		049EAC311E42E14100BC3FBD /* MaeveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC301E42E14100BC3FBD /* MaeveTests.swift */; };
 		049EAC3C1E42E14100BC3FBD /* MaeveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAC3B1E42E14100BC3FBD /* MaeveUITests.swift */; };
 		049EAC4A1E42E2AD00BC3FBD /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 049EAC491E42E2AD00BC3FBD /* Tiles.sks */; };
+		04D28D6F1E491A210072ED36 /* Level-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04D28D6E1E491A210072ED36 /* Level-1.sks */; };
+		04D28D711E4A4E160072ED36 /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D28D701E4A4E160072ED36 /* Tiles.swift */; };
 		04E3A5851E45398B004097AC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3A5841E45398B004097AC /* MenuScene.swift */; };
 		04E3A5881E454587004097AC /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04E3A5871E454587004097AC /* Level2.sks */; };
 		04ED0DE71E439EE40001F3DF /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04ED0DE61E439EE40001F3DF /* Level1.sks */; };
@@ -43,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04493F5F1E4A5297000BFF83 /* GameScene+UserInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+UserInput.swift"; sourceTree = "<group>"; };
+		04493F611E4A7196000BFF83 /* GameEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEnums.swift; sourceTree = "<group>"; };
+		04493F631E4A726B000BFF83 /* GameScene+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+Helpers.swift"; sourceTree = "<group>"; };
 		049EAC121E42E14000BC3FBD /* Maeve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maeve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049EAC151E42E14000BC3FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049EAC171E42E14000BC3FBD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -60,6 +68,8 @@
 		049EAC3B1E42E14100BC3FBD /* MaeveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaeveUITests.swift; sourceTree = "<group>"; };
 		049EAC3D1E42E14100BC3FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		049EAC491E42E2AD00BC3FBD /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
+		04D28D6E1E491A210072ED36 /* Level-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Level-1.sks"; sourceTree = "<group>"; };
+		04D28D701E4A4E160072ED36 /* Tiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
 		04E3A5841E45398B004097AC /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		04E3A5871E454587004097AC /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		04ED0DE61E439EE40001F3DF /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
@@ -163,6 +173,10 @@
 			isa = PBXGroup;
 			children = (
 				049EAC1B1E42E14000BC3FBD /* GameScene.swift */,
+				04493F5F1E4A5297000BFF83 /* GameScene+UserInput.swift */,
+				04493F611E4A7196000BFF83 /* GameEnums.swift */,
+				04493F631E4A726B000BFF83 /* GameScene+Helpers.swift */,
+				04D28D701E4A4E160072ED36 /* Tiles.swift */,
 			);
 			name = "Game Engine";
 			sourceTree = "<group>";
@@ -172,6 +186,7 @@
 			children = (
 				04ED0DE61E439EE40001F3DF /* Level1.sks */,
 				04E3A5871E454587004097AC /* Level2.sks */,
+				04D28D6E1E491A210072ED36 /* Level-1.sks */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -287,6 +302,7 @@
 				049EAC211E42E14000BC3FBD /* Main.storyboard in Resources */,
 				049EAC181E42E14000BC3FBD /* GameScene.sks in Resources */,
 				049EAC231E42E14000BC3FBD /* Assets.xcassets in Resources */,
+				04D28D6F1E491A210072ED36 /* Level-1.sks in Resources */,
 				04E3A5881E454587004097AC /* Level2.sks in Resources */,
 				049EAC4A1E42E2AD00BC3FBD /* Tiles.sks in Resources */,
 				049EAC261E42E14000BC3FBD /* LaunchScreen.storyboard in Resources */,
@@ -316,8 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D28D711E4A4E160072ED36 /* Tiles.swift in Sources */,
+				04493F601E4A5297000BFF83 /* GameScene+UserInput.swift in Sources */,
+				04493F641E4A726B000BFF83 /* GameScene+Helpers.swift in Sources */,
 				049EAC1C1E42E14000BC3FBD /* GameScene.swift in Sources */,
 				04ED0DEE1E45210A0001F3DF /* Boulder.swift in Sources */,
+				04493F621E4A7196000BFF83 /* GameEnums.swift in Sources */,
 				049EAC1E1E42E14000BC3FBD /* GameViewController.swift in Sources */,
 				04E3A5851E45398B004097AC /* MenuScene.swift in Sources */,
 				04ED0DEC1E4520490001F3DF /* Player.swift in Sources */,

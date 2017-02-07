@@ -11,7 +11,7 @@ import SpriteKit
 
 class MenuScene: SKScene {
   
-  let levels = ["Level1", "Level2"]
+  let levels = ["Level1", "Level-1"]
   
   override func didMove(to view: SKView) {
     //scene?.backgroundColor = UIColor.lightGray
